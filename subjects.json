@@ -1,0 +1,337 @@
+{
+  "subjects": [
+    {
+      "id": "hesaban",
+      "name": "حسابان",
+      "shortName": "حسابان ۱",
+      "icon": "📐",
+      "description": "حسابان ۱ پایه یازدهم رشته ریاضی و فیزیک",
+      "color": "green",
+
+      "categories": {
+        "book": {
+          "title": "سؤالات کتاب",
+          "description": "سؤالات و تمرین‌های مرتبط با کتاب درسی"
+        },
+        "custom": {
+          "title": "تمرین‌های یازدهم‌پلاس",
+          "description": "سؤالات تألیفی و تمرین‌های بیشتر"
+        },
+        "exams": {
+          "title": "آزمون‌ها",
+          "description": "آزمون‌های فصل و جامع"
+        }
+      },
+
+      "chapters": [
+        {
+          "id": "hesaban-chapter-1",
+          "number": 1,
+          "title": "جبر و معادله",
+          "description": "دنباله‌ها، معادلات، قدر مطلق و هندسه تحلیلی",
+          "progress": 0,
+
+          "lessons": [
+            {
+              "id": "hesaban-ch1-lesson-1",
+              "number": 1,
+              "title": "مجموع جملات دنباله‌های حسابی و هندسی",
+              "description": "آشنایی با دنباله‌های حسابی و هندسی و محاسبه مجموع جملات",
+              "page": 2,
+
+              "bookQuestions": [],
+
+              "customQuestions": [],
+
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch1-lesson-2",
+              "number": 2,
+              "title": "معادلات درجه دوم",
+              "description": "روش‌های حل معادلات درجه دوم و بررسی ریشه‌ها",
+              "page": 7,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch1-lesson-3",
+              "number": 3,
+              "title": "معادلات گویا و گنگ",
+              "description": "حل معادلات گویا و گنگ و بررسی جواب‌های قابل قبول",
+              "page": 17,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch1-lesson-4",
+              "number": 4,
+              "title": "قدر مطلق و ویژگی‌های آن",
+              "description": "مفهوم قدر مطلق و حل معادلات و نامعادلات قدر مطلقی",
+              "page": 23,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch1-lesson-5",
+              "number": 5,
+              "title": "آشنایی با هندسه تحلیلی",
+              "description": "مفاهیم مقدماتی هندسه تحلیلی و کاربرد آن در حل مسائل",
+              "page": 29,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+
+              "questions": []
+            }
+          ]
+        },
+
+        {
+          "id": "hesaban-chapter-2",
+          "number": 2,
+          "title": "تابع",
+          "description": "آشنایی بیشتر با تابع، انواع تابع، وارون و اعمال روی توابع",
+          "progress": 0,
+
+          "lessons": [
+            {
+              "id": "hesaban-ch2-lesson-1",
+              "number": 1,
+              "title": "آشنایی بیشتر با تابع",
+              "description": "بررسی دقیق‌تر مفهوم تابع و ویژگی‌های آن",
+              "page": 38,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch2-lesson-2",
+              "number": 2,
+              "title": "انواع تابع",
+              "description": "بررسی انواع مختلف تابع و ویژگی‌های آن‌ها",
+              "page": 44,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch2-lesson-3",
+              "number": 3,
+              "title": "وارون تابع",
+              "description": "مفهوم تابع وارون و روش به دست آوردن آن",
+              "page": 54,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch2-lesson-4",
+              "number": 4,
+              "title": "اعمال روی توابع",
+              "description": "جمع، تفریق، ضرب، تقسیم و ترکیب توابع",
+              "page": 63,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            }
+          ]
+        },
+
+        {
+          "id": "hesaban-chapter-3",
+          "number": 3,
+          "title": "توابع نمایی و لگاریتمی",
+          "description": "تابع نمایی، لگاریتم و معادلات لگاریتمی",
+          "progress": 0,
+
+          "lessons": [
+            {
+              "id": "hesaban-ch3-lesson-1",
+              "number": 1,
+              "title": "تابع نمایی",
+              "description": "تعریف و بررسی تابع نمایی و ویژگی‌های آن",
+              "page": 72,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch3-lesson-2",
+              "number": 2,
+              "title": "تابع لگاریتمی و لگاریتم",
+              "description": "مفهوم لگاریتم و تابع لگاریتمی",
+              "page": 80,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch3-lesson-3",
+              "number": 3,
+              "title": "ویژگی‌های لگاریتم و حل معادله‌های لگاریتمی",
+              "description": "قوانین لگاریتم و روش حل معادلات لگاریتمی",
+              "page": 86,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            }
+          ]
+        },
+
+        {
+          "id": "hesaban-chapter-4",
+          "number": 4,
+          "title": "مثلثات",
+          "description": "رادیان، نسبت‌های مثلثاتی و روابط مثلثاتی",
+          "progress": 0,
+
+          "lessons": [
+            {
+              "id": "hesaban-ch4-lesson-1",
+              "number": 1,
+              "title": "رادیان",
+              "description": "اندازه‌گیری زاویه به رادیان و تبدیل واحدهای زاویه",
+              "page": 92,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch4-lesson-2",
+              "number": 2,
+              "title": "نسبت‌های مثلثاتی برخی زوایا",
+              "description": "نسبت‌های مثلثاتی زوایای مهم",
+              "page": 98,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch4-lesson-3",
+              "number": 3,
+              "title": "توابع مثلثاتی",
+              "description": "بررسی توابع سینوس، کسینوس و سایر توابع مثلثاتی",
+              "page": 105,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch4-lesson-4",
+              "number": 4,
+              "title": "روابط مثلثاتی مجموع و تفاضل زوایا",
+              "description": "روابط مثلثاتی مربوط به مجموع و تفاضل دو زاویه",
+              "page": 110,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            }
+          ]
+        },
+
+        {
+          "id": "hesaban-chapter-5",
+          "number": 5,
+          "title": "حد و پیوستگی",
+          "description": "مفهوم حد، قضایای حد، محاسبه حد و پیوستگی",
+          "progress": 0,
+
+          "lessons": [
+            {
+              "id": "hesaban-ch5-lesson-1",
+              "number": 1,
+              "title": "مفهوم حد و فرایندهای حدی",
+              "description": "آشنایی با مفهوم حد و بررسی فرایندهای حدی",
+              "page": 114,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch5-lesson-2",
+              "number": 2,
+              "title": "حدهای یک‌طرفه",
+              "description": "مفهوم حد چپ و راست و ارتباط آن‌ها با حد",
+              "page": 123,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch5-lesson-3",
+              "number": 3,
+              "title": "قضایای حد",
+              "description": "قضایای مهم حد و کاربرد آن‌ها در محاسبه",
+              "page": 130,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch5-lesson-4",
+              "number": 4,
+              "title": "محاسبه حد توابع کسری",
+              "description": "روش‌های محاسبه حد توابع کسری و رفع حالت‌های مبهم",
+              "page": 141,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            },
+
+            {
+              "id": "hesaban-ch5-lesson-5",
+              "number": 5,
+              "title": "پیوستگی",
+              "description": "مفهوم پیوستگی تابع و بررسی شرایط پیوستگی",
+              "page": 145,
+
+              "bookQuestions": [],
+              "customQuestions": [],
+              "questions": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

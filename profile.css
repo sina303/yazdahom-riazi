@@ -1,0 +1,521 @@
+:root {
+
+        --background: #080a09;
+        --secondary: #0d100e;
+        --card: #131714;
+
+        --green: #107c10;
+        --green-light: #35d35a;
+
+        --text: #e8ebe9;
+        --muted: #8d958f;
+
+        --red: #e05252;
+
+        --border: #242a26;
+
+}
+
+
+* {
+
+        box-sizing: border-box;
+
+        margin: 0;
+
+        padding: 0;
+
+}
+
+
+body {
+
+        min-height: 100vh;
+
+        background: var(--background);
+
+        color: var(--text);
+
+        font-family:
+                Arial,
+                sans-serif;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.profile-header {
+
+        height: 70px;
+
+        padding: 0 30px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        background: var(--secondary);
+
+        border-bottom:
+                1px solid var(--border);
+
+}
+
+
+.header-title {
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+}
+
+
+.back-button {
+
+        color: var(--muted);
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        transition: 0.2s;
+
+}
+
+
+.back-button:hover {
+
+        color: var(--green-light);
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.profile-container {
+
+        width: min(900px,
+                        calc(100% - 30px));
+
+        margin: 40px auto;
+
+}
+
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.profile-card {
+
+        background: var(--card);
+
+        border:
+                1px solid var(--border);
+
+        border-radius: 18px;
+
+        padding: 35px;
+
+        text-align: center;
+
+}
+
+
+.avatar {
+
+        width: 85px;
+
+        height: 85px;
+
+        margin: 0 auto 18px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background:
+                rgba(16, 124, 16, 0.15);
+
+        border:
+                1px solid rgba(53, 211, 90, 0.25);
+
+        font-size: 38px;
+
+}
+
+
+.profile-name {
+
+        font-size: 25px;
+
+        font-weight: bold;
+
+}
+
+
+.level-text {
+
+        margin-top: 10px;
+
+        color: var(--muted);
+
+        font-size: 14px;
+
+}
+
+
+.level-text span {
+
+        color: var(--green-light);
+
+        font-weight: bold;
+
+}
+
+
+.xp-value {
+
+        margin-top: 10px;
+
+        color: var(--green-light);
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+}
+
+
+/* =========================================
+   XP
+========================================= */
+
+.xp-section {
+
+        max-width: 600px;
+
+        margin: 30px auto 0;
+
+}
+
+
+.xp-label {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-bottom: 10px;
+
+        color: var(--muted);
+
+        font-size: 12px;
+
+}
+
+
+.xp-bar {
+
+        width: 100%;
+
+        height: 9px;
+
+        overflow: hidden;
+
+        border-radius: 20px;
+
+        background: var(--secondary);
+
+}
+
+
+.xp-bar-fill {
+
+        width: 0%;
+
+        height: 100%;
+
+        border-radius: 20px;
+
+        background: var(--green-light);
+
+        transition:
+                width 0.5s ease;
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats-grid {
+
+        display: grid;
+
+        grid-template-columns:
+                repeat(3, 1fr);
+
+        gap: 15px;
+
+        margin-top: 20px;
+
+}
+
+
+.stat-card {
+
+        padding: 25px 15px;
+
+        text-align: center;
+
+        background: var(--card);
+
+        border:
+                1px solid var(--border);
+
+        border-radius: 14px;
+
+}
+
+
+.stat-icon {
+
+        font-size: 25px;
+
+}
+
+
+.stat-number {
+
+        margin-top: 10px;
+
+        font-size: 27px;
+
+        font-weight: bold;
+
+}
+
+
+.stat-label {
+
+        margin-top: 7px;
+
+        color: var(--muted);
+
+        font-size: 12px;
+
+}
+
+
+/* =========================================
+   ACCURACY
+========================================= */
+
+.accuracy-card {
+
+        margin-top: 20px;
+
+        padding: 25px;
+
+        background: var(--card);
+
+        border:
+                1px solid var(--border);
+
+        border-radius: 14px;
+
+}
+
+
+.section-title {
+
+        font-weight: bold;
+
+        font-size: 15px;
+
+}
+
+
+.accuracy-content {
+
+        margin-top: 22px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 25px;
+
+}
+
+
+.accuracy-number {
+
+        min-width: 80px;
+
+        color: var(--green-light);
+
+        font-size: 32px;
+
+        font-weight: bold;
+
+}
+
+
+.accuracy-info {
+
+        flex: 1;
+
+        color: var(--muted);
+
+        font-size: 12px;
+
+}
+
+
+.accuracy-bar {
+
+        height: 7px;
+
+        margin-top: 10px;
+
+        overflow: hidden;
+
+        border-radius: 20px;
+
+        background: var(--secondary);
+
+}
+
+
+.accuracy-fill {
+
+        width: 0%;
+
+        height: 100%;
+
+        background: var(--green-light);
+
+        transition:
+                width 0.5s ease;
+
+}
+
+
+/* =========================================
+   ACTION
+========================================= */
+
+.profile-actions {
+
+        margin-top: 20px;
+
+}
+
+
+.action-button {
+
+        display: block;
+
+        padding: 14px;
+
+        text-align: center;
+
+        text-decoration: none;
+
+        color: #071008;
+
+        background: var(--green-light);
+
+        border-radius: 10px;
+
+        font-weight: bold;
+
+        transition: 0.2s;
+
+}
+
+
+.action-button:hover {
+
+        transform: translateY(-2px);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+        .profile-header {
+
+                padding: 0 18px;
+
+        }
+
+
+        .profile-container {
+
+                margin-top: 20px;
+
+        }
+
+
+        .profile-card {
+
+                padding: 25px 18px;
+
+        }
+
+
+        .stats-grid {
+
+                grid-template-columns:
+                        1fr;
+
+        }
+
+
+        .accuracy-content {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                text-align: center;
+
+        }
+
+
+        .accuracy-number {
+
+                text-align: center;
+
+        }
+
+
+        .xp-label {
+
+                font-size: 11px;
+
+        }
+
+}
