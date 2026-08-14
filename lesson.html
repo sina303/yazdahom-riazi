@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>درس حسابان</title>
+
+    <link rel="stylesheet" href="css/lesson.css" />
+  </head>
+
+  <body>
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="lesson-header">
+      <div class="logo">📐 حسابان</div>
+
+      <nav>
+        <a href="index.html"> خانه </a>
+
+        <a href="hesaban.html"> حسابان </a>
+      </nav>
+
+      <div class="user">👤 کاربر</div>
+    </header>
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main>
+      <!-- BREADCRUMB -->
+
+      <div class="breadcrumb">
+        <a href="hesaban.html"> حسابان </a>
+
+        <span> ← </span>
+
+        <a href="#" id="backToChapter"> فصل </a>
+
+        <span> ← </span>
+
+        <strong id="breadcrumbLesson"> درس </strong>
+      </div>
+
+      <!-- =========================================
+             HERO
+        ========================================== -->
+
+      <section class="lesson-hero">
+        <span id="lessonNumber"> درس </span>
+
+        <h1 id="lessonTitle">در حال بارگذاری...</h1>
+
+        <p id="lessonDescription">لطفاً صبر کنید.</p>
+      </section>
+
+      <!-- =========================================
+             CONTENT
+        ========================================== -->
+
+      <section class="lesson-content">
+        <!-- LESSON INFO -->
+
+        <div class="lesson-info">
+          <span> 📖 محتوای آموزشی </span>
+
+          <h2>درسنامه</h2>
+
+          <p>محتوای کامل این درس در این قسمت قرار خواهد گرفت.</p>
+        </div>
+
+        <!-- =========================================
+                 CONTENT TYPES
+            ========================================== -->
+
+        <section class="content-types">
+          <button
+            class="content-type active"
+            onclick="selectLessonSection('book', this)"
+          >
+            <div class="content-type-icon">📕</div>
+
+            <div class="content-type-text">
+              <span> کتاب درسی </span>
+
+              <h3>سؤالات کتاب</h3>
+
+              <p>تمرین‌ها و فعالیت‌های مرتبط با کتاب درسی</p>
+            </div>
+
+            <div class="content-type-arrow">←</div>
+          </button>
+
+          <button
+            class="content-type"
+            onclick="selectLessonSection('custom', this)"
+          >
+            <div class="content-type-icon">🧠</div>
+
+            <div class="content-type-text">
+              <span> یازدهم‌پلاس </span>
+
+              <h3>تمرین‌های بیشتر</h3>
+
+              <p>سؤالات تألیفی برای تمرین و تسلط بیشتر</p>
+            </div>
+
+            <div class="content-type-arrow">←</div>
+          </button>
+
+          <button
+            class="content-type"
+            onclick="selectLessonSection('exam', this)"
+          >
+            <div class="content-type-icon">🎯</div>
+
+            <div class="content-type-text">
+              <span> آزمون </span>
+
+              <h3>آزمون این درس</h3>
+
+              <p>خودت را با یک آزمون کوتاه محک بزن</p>
+            </div>
+
+            <div class="content-type-arrow">←</div>
+          </button>
+        </section>
+
+        <!-- =========================================
+                 BOOK QUESTIONS
+            ========================================== -->
+
+        <section class="lesson-section" id="bookSection">
+          <div class="section-title">
+            <div>
+              <span> 📕 کتاب درسی </span>
+
+              <h2>سؤالات کتاب</h2>
+
+              <p>تمرین‌های مربوط به این درس</p>
+            </div>
+
+            <div class="section-badge" id="bookCount">0 سؤال</div>
+          </div>
+
+          <div class="questions-list" id="bookQuestionsList">
+            <div class="loading">هنوز سؤالی برای این بخش اضافه نشده.</div>
+          </div>
+        </section>
+
+        <!-- =========================================
+                 CUSTOM QUESTIONS
+            ========================================== -->
+
+        <section class="lesson-section hidden" id="customSection">
+          <div class="section-title">
+            <div>
+              <span> 🧠 یازدهم‌پلاس </span>
+
+              <h2>تمرین‌های بیشتر</h2>
+
+              <p>سؤالات تألیفی برای تسلط بیشتر</p>
+            </div>
+
+            <div class="section-badge" id="customCount">0 سؤال</div>
+          </div>
+
+          <div class="questions-list" id="customQuestionsList">
+            <div class="loading">هنوز تمرینی برای این بخش اضافه نشده.</div>
+          </div>
+        </section>
+
+        <!-- =========================================
+                 EXAM
+            ========================================== -->
+
+        <section class="lesson-section hidden" id="examSection">
+          <div class="section-title">
+            <div>
+              <span> 🎯 آزمون </span>
+
+              <h2>آزمون این درس</h2>
+
+              <p>آزمون اختصاصی این درس</p>
+            </div>
+          </div>
+
+          <div class="exam-placeholder">
+            <div class="exam-placeholder-icon">🎯</div>
+
+            <h3>آزمون هنوز آماده نشده</h3>
+
+            <p>این بخش بعداً به سیستم آزمون کامل متصل می‌شود.</p>
+          </div>
+        </section>
+
+        <!-- =========================================
+                 AI ASSISTANT
+            ========================================== -->
+
+        <section class="ai-assistant">
+          <div class="ai-header">
+            <div class="ai-header-icon">🤖</div>
+
+            <div>
+              <span> دستیار هوشمند حسابان </span>
+
+              <h2>سؤالت رو از AI بپرس</h2>
+
+              <p>سؤال حسابان خودت را بنویس یا عکس آن را ارسال کن.</p>
+            </div>
+          </div>
+
+          <!-- AI INPUT -->
+
+          <div class="ai-input-area">
+            <textarea
+              id="aiQuestion"
+              placeholder="مثلاً: این سؤال رو مرحله‌به‌مرحله حل کن..."
+            ></textarea>
+
+            <!-- IMAGE PREVIEW -->
+
+            <div id="aiImagePreview" class="ai-image-preview hidden">
+              <img id="aiPreviewImage" src="" alt="تصویر سؤال" />
+
+              <button type="button" onclick="removeAIImage()">
+                × حذف تصویر
+              </button>
+            </div>
+
+            <!-- ACTIONS -->
+
+            <div class="ai-actions">
+              <label class="ai-upload-button" for="aiImageInput">
+                📷 ارسال عکس سؤال
+              </label>
+
+              <input type="file" id="aiImageInput" accept="image/*" hidden />
+
+              <button class="ai-send-button" type="button" onclick="askAI()">
+                🤖 حل سؤال
+              </button>
+            </div>
+          </div>
+
+          <!-- AI RESPONSE -->
+
+          <div id="aiResponse" class="ai-response hidden">
+            <div class="ai-response-header">
+              <span> 🤖 پاسخ AI </span>
+            </div>
+
+            <div id="aiResponseContent" class="ai-response-content"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="js/user.js"></script>
+
+    <script src="js/lesson.js"></script>
+
+    <script src="js/ai.js"></script>
+  </body>
+</html>

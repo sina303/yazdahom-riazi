@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ورود | Y11 Math</title>
+
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+
+  <body>
+    <main class="login-page">
+      <section class="login-card">
+        <div class="logo">📚</div>
+
+        <h1>Y11 Math</h1>
+
+        <p class="welcome">به فضای مطالعه یازدهم ریاضی خوش آمدی</p>
+
+        <form id="loginForm">
+          <label for="usernameInput"> یک نام کاربری انتخاب کن </label>
+
+          <input
+            type="text"
+            id="usernameInput"
+            placeholder="مثلاً Sina"
+            maxlength="20"
+            autocomplete="off"
+            required
+          />
+
+          <p id="errorMessage" class="error-message"></p>
+
+          <button type="submit">ورود به سایت</button>
+        </form>
+
+        <p class="login-note">نام کاربری تو فقط روی این دستگاه ذخیره می‌شود.</p>
+      </section>
+    </main>
+
+    <script src="js/user.js"></script>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>

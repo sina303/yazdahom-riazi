@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>حسابان | یازدهم ریاضی</title>
+
+    <link rel="stylesheet" href="css/hesaban.css" />
+  </head>
+
+  <body>
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="hesaban-header">
+      <div class="hesaban-logo">📐 حسابان</div>
+
+      <nav>
+        <a href="index.html"> خانه اصلی </a>
+
+        <a href="#chapters"> فصل‌ها </a>
+
+        <a href="#practice"> تمرین‌ها </a>
+
+        <a href="#exams"> آزمون‌ها </a>
+      </nav>
+
+      <div class="user-box">
+        👤
+
+        <span id="headerUsername"> کاربر </span>
+      </div>
+    </header>
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main>
+      <!-- =====================================
+             HERO
+        ====================================== -->
+
+      <section class="hesaban-hero">
+        <div class="hero-text">
+          <span class="small-title"> پنل اختصاصی حسابان </span>
+
+          <h1>حسابان ۱</h1>
+
+          <p>
+            درسنامه، تمرین، پاسخ تشریحی، آزمون و ابزارهای یادگیری حسابان یازدهم.
+          </p>
+
+          <div class="hero-buttons">
+            <button onclick="scrollToChapters()">شروع مطالعه</button>
+
+            <button class="secondary-button">🎯 آزمون سریع</button>
+          </div>
+        </div>
+
+        <div class="progress-box">
+          <span> پیشرفت شما </span>
+
+          <strong> 0% </strong>
+
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+
+          <small> هنوز مطالعه‌ای ثبت نشده </small>
+        </div>
+      </section>
+
+      <!-- =====================================
+             QUICK ACCESS
+        ====================================== -->
+
+      <section class="quick-section">
+        <div class="section-heading">
+          <span> دسترسی سریع </span>
+
+          <h2>حسابان</h2>
+        </div>
+
+        <div class="quick-grid">
+          <div class="quick-card">
+            <div>📖</div>
+
+            <h3>درسنامه</h3>
+
+            <p>مطالب و مفاهیم مهم حسابان</p>
+          </div>
+
+          <div class="quick-card">
+            <div>✏️</div>
+
+            <h3>تمرین‌ها</h3>
+
+            <p>تمرین‌های کتاب و سوالات بیشتر</p>
+          </div>
+
+          <div class="quick-card">
+            <div>✅</div>
+
+            <h3>پاسخ‌ها</h3>
+
+            <p>پاسخ تشریحی و مرحله‌به‌مرحله</p>
+          </div>
+
+          <div class="quick-card">
+            <div>🤖</div>
+
+            <h3>AI حسابان</h3>
+
+            <p>سوالت را از دستیار هوشمند بپرس</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             CHAPTERS
+        ====================================== -->
+
+      <section class="chapters-section" id="chapters">
+        <div class="section-heading">
+          <span> مطالعه </span>
+
+          <h2>فصل‌های حسابان</h2>
+
+          <p>یک فصل را انتخاب کنید و مطالعه را شروع کنید.</p>
+        </div>
+
+        <div class="chapters-grid" id="chaptersGrid">
+          <div class="loading">در حال بارگذاری فصل‌ها...</div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             EXAM
+        ====================================== -->
+
+      <section class="exam-section" id="exams">
+        <div>
+          <span> آماده‌ای؟ </span>
+
+          <h2>دانش خودت را امتحان کن</h2>
+
+          <p>بعداً این قسمت تبدیل به سیستم آزمون کامل حسابان خواهد شد.</p>
+        </div>
+
+        <button>شروع آزمون</button>
+      </section>
+
+      <!-- =====================================
+             AI
+        ====================================== -->
+
+      <section class="ai-section">
+        <div class="ai-icon">🤖</div>
+
+        <div>
+          <span> دستیار هوشمند </span>
+
+          <h2>سوالی درباره حسابان داری؟</h2>
+
+          <p>
+            بعداً می‌توانی سوالت را همین‌جا از AI بپرسی و جواب مرحله‌به‌مرحله
+            بگیری.
+          </p>
+        </div>
+
+        <button>پرسیدن از AI</button>
+      </section>
+    </main>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/user.js"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

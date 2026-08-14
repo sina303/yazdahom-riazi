@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>پروفایل | Y11 Math</title>
+
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+
+    <header class="profile-header">
+      <a href="index.html" class="back-button"> ← بازگشت </a>
+
+      <div class="header-title">پروفایل کاربر</div>
+    </header>
+
+    <!-- PROFILE -->
+
+    <main class="profile-container">
+      <section class="profile-card">
+        <div class="avatar">👤</div>
+
+        <div class="profile-name">
+          <span id="username"> کاربر </span>
+        </div>
+
+        <div class="level-text">
+          Level
+          <span id="userLevel"> 1 </span>
+        </div>
+
+        <div class="xp-value">
+          ⭐
+          <span id="userXP"> 0 </span>
+
+          XP
+        </div>
+
+        <!-- XP PROGRESS -->
+
+        <div class="xp-section">
+          <div class="xp-label">
+            <span> پیشرفت تا Level بعدی </span>
+
+            <span id="xpProgressText"> 0 / 100 XP </span>
+          </div>
+
+          <div class="xp-bar">
+            <div id="xpProgress" class="xp-bar-fill"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATISTICS -->
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+
+          <div id="solvedCount" class="stat-number">0</div>
+
+          <div class="stat-label">سؤال حل‌شده</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+
+          <div id="correctCount" class="stat-number">0</div>
+
+          <div class="stat-label">پاسخ درست</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">❌</div>
+
+          <div id="wrongCount" class="stat-number">0</div>
+
+          <div class="stat-label">پاسخ غلط</div>
+        </div>
+      </section>
+
+      <!-- ACCURACY -->
+
+      <section class="accuracy-card">
+        <div class="section-title">دقت پاسخ‌ها</div>
+
+        <div class="accuracy-content">
+          <div id="accuracyPercent" class="accuracy-number">0%</div>
+
+          <div class="accuracy-info">
+            <span> درصد پاسخ‌های صحیح </span>
+
+            <div class="accuracy-bar">
+              <div id="accuracyFill" class="accuracy-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIONS -->
+
+      <section class="profile-actions">
+        <a href="index.html" class="action-button"> 📚 رفتن به درس‌ها </a>
+      </section>
+    </main>
+
+    <script src="js/user.js"></script>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>
