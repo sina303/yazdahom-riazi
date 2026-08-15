@@ -79,11 +79,12 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
 `;
 
     /* -----------------------------------------
-       GEMINI CONTENT
+       INTERACTIONS INPUT
     ----------------------------------------- */
 
-    const parts = [
+    const input = [
       {
+        type: "text",
         text: prompt,
       },
     ];
@@ -106,20 +107,19 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
       const mimeType = match[1];
       const base64Data = match[2];
 
-      parts.push({
-        inline_data: {
-          mime_type: mimeType,
-          data: base64Data,
-        },
+      input.push({
+        type: "image",
+        mime_type: mimeType,
+        data: base64Data,
       });
     }
 
     /* -----------------------------------------
-       GEMINI REQUEST
+       GEMINI INTERACTIONS API
     ----------------------------------------- */
 
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/interactions",
       {
         method: "POST",
 
@@ -129,12 +129,8 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
         },
 
         body: JSON.stringify({
-          contents: [
-            {
-              role: "user",
-              parts: parts,
-            },
-          ],
+          model: "gemini-3.6-flash",
+          input: input,
         }),
       }
     );
@@ -156,14 +152,30 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
     }
 
     /* -----------------------------------------
-       GET ANSWER
+       GET OUTPUT
     ----------------------------------------- */
 
-    const answer =
-      data?.candidates?.[0]?.content?.parts
-        ?.map((part) => part.text || "")
-        .join("")
-        .trim() || "";
+    let answer = "";
+
+    if (Array.isArray(data?.steps)) {
+      for (const step of data.steps) {
+        if (step.type === "model_output") {
+          if (Array.isArray(step.content)) {
+            for (const content of step.content) {
+              if (content.type === "text") {
+                answer += content.text || "";
+              }
+            }
+          }
+        }
+      }
+    }
+
+    answer = answer.trim();
+
+    /* -----------------------------------------
+       EMPTY RESPONSE
+    ----------------------------------------- */
 
     if (!answer) {
       return res.status(500).json({
@@ -199,8 +211,4 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(
     `Yazdahom AI Backend running on port ${PORT}`
   );
-});
-
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Yazdahom AI Backend running on port ${PORT}`);
 });
