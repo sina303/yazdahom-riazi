@@ -1,5 +1,15 @@
 import express from "express";
 import cors from "cors";
+import pg from "pg";
+
+const { Pool } = pg;
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 const app = express();
 
@@ -8,8 +18,29 @@ app.use(cors());
 app.use(
   express.json({
     limit: "10mb",
-  })
+  }),
 );
+
+/* =========================================
+   DATABASE TEST
+========================================= */
+
+app.get("/api/db-test", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+
+    res.json({
+      success: true,
+      database: result.rows[0],
+    });
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      error: "Database connection failed",
+    });
+  }
+});
 
 /* =========================================
    HOME
@@ -30,19 +61,11 @@ app.post("/api/ai", async (req, res) => {
   try {
     const { question, image } = req.body || {};
 
-    /* -----------------------------------------
-       CHECK INPUT
-    ----------------------------------------- */
-
     if (!question && !image) {
       return res.status(400).json({
         error: "Question or image is required",
       });
     }
-
-    /* -----------------------------------------
-       GEMINI API KEY
-    ----------------------------------------- */
 
     const apiKey = process.env.GEMINI_API_KEY;
 
@@ -52,35 +75,26 @@ app.post("/api/ai", async (req, res) => {
       });
     }
 
-    /* -----------------------------------------
-       PROMPT
-    ----------------------------------------- */
-
     const prompt = `
-تو دستیار هوشمند حسابان در یک سایت آموزشی برای دانش‌آموزان یازدهم رشته ریاضی هستی.
 
-وظیفه تو کمک آموزشی به دانش‌آموز است.
+تو دستیار هوشمند حسابان یک سایت آموزشی برای دانش‌آموزان یازدهم رشته ریاضی هستی.
 
-اگر سؤال ریاضی دریافت کردی:
+سؤال را دقیق بررسی کن.
 
-1. سؤال را دقیق بررسی کن.
-2. روش حل را مرحله‌به‌مرحله توضیح بده.
-3. فرمول‌های مورد نیاز را واضح بنویس.
-4. محاسبات را مرحله‌به‌مرحله انجام بده.
-5. جواب نهایی را کاملاً مشخص کن.
-6. اگر چند روش مناسب وجود دارد، روش ساده‌تر را اول توضیح بده.
-7. اگر سؤال یا تصویر واضح نیست، حدس نزن و بگو کدام قسمت مشخص نیست.
-8. پاسخ را به زبان فارسی بده.
-9. لحن پاسخ آموزشی و قابل فهم برای دانش‌آموز یازدهم باشد.
+روش حل را مرحله به مرحله توضیح بده.
 
-سؤال دانش‌آموز:
+فرمول‌ها و محاسبات را واضح بنویس.
 
-${question || "دانش‌آموز یک تصویر از سؤال ارسال کرده است. تصویر را با دقت بررسی و سؤال را حل کن."}
+جواب نهایی را مشخص کن.
+
+پاسخ را فارسی و آموزشی بده.
+
+
+سؤال:
+
+${question || "تصویر سؤال را بررسی کن"}
+
 `;
-
-    /* -----------------------------------------
-       INTERACTIONS INPUT
-    ----------------------------------------- */
 
     const input = [
       {
@@ -89,14 +103,8 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
       },
     ];
 
-    /* -----------------------------------------
-       IMAGE
-    ----------------------------------------- */
-
     if (image) {
-      const match = image.match(
-        /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/
-      );
+      const match = image.match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/);
 
       if (!match) {
         return res.status(400).json({
@@ -104,19 +112,12 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
         });
       }
 
-      const mimeType = match[1];
-      const base64Data = match[2];
-
       input.push({
         type: "image",
-        mime_type: mimeType,
-        data: base64Data,
+        mime_type: match[1],
+        data: match[2],
       });
     }
-
-    /* -----------------------------------------
-       GEMINI INTERACTIONS API
-    ----------------------------------------- */
 
     const response = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/interactions",
@@ -125,77 +126,51 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
 
         headers: {
           "Content-Type": "application/json",
+
           "x-goog-api-key": apiKey,
         },
 
         body: JSON.stringify({
           model: "gemini-3.6-flash",
+
           input: input,
         }),
-      }
+      },
     );
 
     const data = await response.json();
 
-    /* -----------------------------------------
-       GEMINI ERROR
-    ----------------------------------------- */
-
     if (!response.ok) {
-      console.error("Gemini API error:", data);
+      console.error(data);
 
       return res.status(response.status).json({
-        error:
-          data?.error?.message ||
-          "Gemini API request failed",
+        error: data?.error?.message || "Gemini error",
       });
     }
 
-    /* -----------------------------------------
-       GET OUTPUT
-    ----------------------------------------- */
-
     let answer = "";
 
-    if (Array.isArray(data?.steps)) {
+    if (Array.isArray(data.steps)) {
       for (const step of data.steps) {
         if (step.type === "model_output") {
-          if (Array.isArray(step.content)) {
-            for (const content of step.content) {
-              if (content.type === "text") {
-                answer += content.text || "";
-              }
+          for (const item of step.content || []) {
+            if (item.type === "text") {
+              answer += item.text;
             }
           }
         }
       }
     }
 
-    answer = answer.trim();
-
-    /* -----------------------------------------
-       EMPTY RESPONSE
-    ----------------------------------------- */
-
-    if (!answer) {
-      return res.status(500).json({
-        error: "AI returned an empty response",
-      });
-    }
-
-    /* -----------------------------------------
-       SUCCESS
-    ----------------------------------------- */
-
-    return res.status(200).json({
+    res.json({
       success: true,
-      answer: answer,
+
+      answer: answer.trim(),
     });
-
   } catch (error) {
-    console.error("Server error:", error);
+    console.error(error);
 
-    return res.status(500).json({
+    res.status(500).json({
       error: "Internal server error",
     });
   }
@@ -208,7 +183,5 @@ ${question || "دانش‌آموز یک تصویر از سؤال ارسال کر
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(
-    `Yazdahom AI Backend running on port ${PORT}`
-  );
+  console.log(`Yazdahom AI Backend running on port ${PORT}`);
 });
